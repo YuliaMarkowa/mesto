@@ -7,9 +7,20 @@
     margin: 0 auto;
     
 }
+
 .header {
     max-width: 880px;
     display: flex;
     align-items: flex-start;
     border-bottom: 1px solid #545454;
 }
+
+.elements {
+
+}
+
+.element__item {
+
+}
+
+.element
