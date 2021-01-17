@@ -13,7 +13,7 @@
     display: flex;
     align-items: flex-start;
     border-bottom: 1px solid #545454;
-    border: 1px solid green;     
+    /*border: 1px solid green;*/
 }
 
 .header__logo {
@@ -22,6 +22,7 @@
 
 .profile {
     max-width: 880px;
+    padding-top: 40px;
     padding-bottom: 50px;
     display: flex;
     justify-content: space-between;
@@ -37,10 +38,13 @@
 }
 
 .profile__info {
+    display: flex;
     margin-left: 30px;
     margin-right: auto;
 }
-
+.profile__caption {
+   
+}
 .profile__info-name {
     display: flex;
     max-width: 294px;
@@ -70,6 +74,8 @@
     background-color: transparent;
     border: 1px solid #FFFFFF;
     cursor: pointer;
+     
+    align-self: center;
 }
 
 .profile__add-button {
@@ -91,7 +97,7 @@
 
 .element__item-rectangle {
     max-width: 282px;
-    min-height: 361px;
+    min-height: 360px;
     background-color:  #FFFFFF;
     border-radius: 10px;
 }
@@ -104,14 +110,49 @@
     border-top-right-radius: 10px;
 }
 
+.element__item-name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .element__item-text {
-    max-width: 336px;
-    color: #FFFFFF;
+    max-width: 246px;
+    color: #000000;
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 1.2;
+    margin: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 25px 15px 31px 21px;
+}
+
+.element__item-like-button {
+    width: 21px;
+    height: 19px;
+    background-image: url(./images/like.svg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    margin-right: 37px;
+    cursor: pointer;
+    
+}
+
+.footer {
+    max-width: 882px;
+    padding: 66px 0 60px;
+}
+
+.footer__copyright {
     font-size: 18px;
     font-weight: normal;
     line-height: 1.2;
     margin: 0;
-    margin-top: 16px;
+    color: #545454;
 }
-
 
