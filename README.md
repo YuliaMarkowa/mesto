@@ -12,4 +12,8 @@ flex
 
 фотографии из личной коллекции
 
+<<<<<<< HEAD
 Ссылка на сайт:  https://yuliamarkowa.github.io/mesto/index.html
+=======
+Ссылка на сайт: https://yuliamarkowa.github.io/mesto/index.html
+>>>>>>> 2caf81a0f842e8f9eb8bacccbc5e07413e38c804
