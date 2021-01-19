@@ -12,4 +12,4 @@ flex
 
 фотографии из личной коллекции
 
-Ссылка на сайт:
+Ссылка на сайт: https://yuliamarkowa.github.io/mesto/index.html
