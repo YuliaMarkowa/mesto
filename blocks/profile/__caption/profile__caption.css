@@ -10,3 +10,10 @@
     white-space: nowrap;
     overflow: hidden;
 }
+
+@media (max-width: 700px) {
+    .profile__caption {
+        font-size: 14px;
+        line-height: 1.2;
+    }
+}

@@ -12,3 +12,8 @@
     margin-left: 18px;
     margin-top: 6px;
 }
+
+.profile__edit-button:hover {
+    transition: 0.8s ease;
+    opacity: 0.6;
+}

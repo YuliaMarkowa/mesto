@@ -11,3 +11,10 @@
     cursor: pointer;
     padding: 0;
 }
+
+.elements__like-button:hover {
+    transition: 0.8s ease;
+    opacity: 0.6;
+}
+
+ 

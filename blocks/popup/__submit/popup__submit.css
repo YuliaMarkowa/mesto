@@ -1,5 +1,4 @@
 .popup__submit {
-    /*display: block;*/
     height: 50px;
     width: 100%;
     font-size: 18px;
@@ -9,4 +8,16 @@
     background-color: #000000;
     color: #FFFFFF;
     margin-top: 18px;
+    cursor: pointer;
+}
+
+.popup__submit:hover {
+    transition: 0.8s ease;
+    opacity: 0.6;
+}
+
+@media (max-width: 580px) {
+    .popup__submit {
+        width: 238px;
+    }
 }

@@ -6,3 +6,9 @@
     margin-bottom: 54px;
     color: #000000;
 }
+
+@media (max-width: 580px) {
+    .popup__heading {
+        font-size: 18px;
+    }
+}
