@@ -4,24 +4,25 @@
     background-position: center;
     background-size: contain;
     background-color: transparent;
-    width: 40px;
-    height: 40px;
+    width: 57px;
+    height: 57px;
     border: none;
-    top: -30px;
-    right: -30px;
+    top: -47px;
+    right: -47px;
     cursor: pointer;
 }
 
 .popup__close-button:hover {
     transition: 0.8s ease;
     opacity: 0.6;
+    outline: none;
 }
 
 @media (max-width: 580px) {
 .popup__close-button {
-    width: 26px;
-    height: 26px;
-    top: -33.62px;
+    width: 35px;
+    height: 35px;
+    top: -43.62px;
     right: -6px;
 }
 }
