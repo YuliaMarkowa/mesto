@@ -11,13 +11,13 @@ let aboutInput = document.querySelector('.popup__input_type_about');
 let buttonEditProfile = document.querySelector('.profile__edit-button');
 let buttonClosePopup = document.querySelector('.popup__close-button');
 
- function popupOpen() {
-     popup.classList.add('popup_opened');
+ function openPopup() {     
      nameInput.value = profileName.textContent;
      aboutInput.value = profileCapture.textContent;
+     popup.classList.add('popup_opened');
  }
 
- function popupClose() {
+ function closePopup() {
      popup.classList.remove('popup_opened');
  }
 
@@ -25,11 +25,11 @@ let buttonClosePopup = document.querySelector('.popup__close-button');
     evt.preventDefault();
     profileName.textContent = nameInput.value;
     profileCapture.textContent = aboutInput.value;
-    popupClose();
+    closePopup();
 }
 
- buttonEditProfile.addEventListener('click', popupOpen);
- buttonClosePopup.addEventListener('click', popupClose);
+ buttonEditProfile.addEventListener('click', openPopup);
+ buttonClosePopup.addEventListener('click', closePopup);
  formElement.addEventListener('submit', formSubmitHandler);
  
 
