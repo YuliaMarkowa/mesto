@@ -11,10 +11,10 @@
     align-self: center;
     margin-left: 18px;
     margin-top: 6px;
+    transition: opacity 0.3s ease;
 }
 
 .profile__edit-button:hover {
-    transition: 0.8s ease;
     opacity: 0.6;
 }
 

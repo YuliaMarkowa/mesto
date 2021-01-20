@@ -10,70 +10,71 @@
 
 <body class="page">
     <header class="header">
-        <img src="./images/header-logo.svg" alt="Cлово Место" class="header__logo">
+        <a href="#" target="_blank" rel="noopener" class="header__link"><img src="./images/header-logo.svg"
+                alt="Cлово Место" class="header__logo"></a>
     </header>
     <main>
         <section class="profile">
-            <img src="./images/profile__avatar.jpg" alt="Жак-Ив Кусто" class="profile__avatar">
+            <img src="./images/profile__avatar.jpg" alt="Аватар пользователя" class="profile__avatar">
             <div class="profile__info">
                 <div class="profile__description">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
-                    <button class="profile__edit-button" type="button"></button>
+                    <button aria-label="редактировать" class="profile__edit-button" type="button"></button>
                 </div>
                 <p class="profile__caption">Исследователь океана</p>
             </div>
-            <button class="profile__add-button" type="button"></button>
+            <button aria-label="добавить" class="profile__add-button" type="button"></button>
         </section>
 
-        <section class="elements">
-            <div class="elements__rectangle">
-                <img src="./images/elements__image-arhyz.jpg" alt="Архыз" class="elements__image">
-                <div class="elements__name">
-                    <h2 class="elements__text">Архыз</h2>
-                    <button class="elements__like-button" type="button"></button>
+        <section class="cards">
+            <article class="card">
+                <img src="./images/card__image-arhyz.jpg" alt="Архыз" class="card__image">
+                <div class="card__name">
+                    <h2 class="card__text">Архыз</h2>
+                    <button aria-label="понравилось" class="card__like-button" type="button"></button>
                 </div>
-            </div>
-            <div class="elements__rectangle">
-                <img src="./images/elements__image-kabardino-balkaria.jpg" alt="Уллу-Тау" class="elements__image">
-                <div class="elements__name">
-                    <h2 class="elements__text">Уллу-Тау</h2>
-                    <button class="elements__like-button" type="button"></button>
+            </article>
+            <article class="card">
+                <img src="./images/card__image-kabardino-balkaria.jpg" alt="Кабардино-Балкария" class="card__image">
+                <div class="card__name">
+                    <h2 class="card__text">Кабардино-Балкария</h2>
+                    <button aria-label="понравилось" class="card__like-button" type="button"></button>
                 </div>
-            </div>
-            <div class="elements__rectangle">
-                <img src="./images/elements__image-kavkaz.jpg" alt="Кавказ" class="elements__image">
-                <div class="elements__name">
-                    <h2 class="elements__text">Кавказ</h2>
-                    <button class="elements__like-button" type="button"></button>
+            </article>
+            <article class="card">
+                <img src="./images/card__image-kavkaz.jpg" alt="Кавказ" class="card__image">
+                <div class="card__name">
+                    <h2 class="card__text"> Северный Кавказ</h2>
+                    <button aria-label="понравилось" class="card__like-button" type="button"></button>
                 </div>
-            </div>
-            <div class="elements__rectangle">
-                <img src="./images/elements__image-kolskiy.jpg" alt="Кольский" class="elements__image">
-                <div class="elements__name">
-                    <h2 class="elements__text">Кольский</h2>
-                    <button class="elements__like-button" type="button"></button>
+            </article>
+            <article class="card">
+                <img src="./images/card__image-kolskiy.jpg" alt="Кольский" class="card__image">
+                <div class="card__name">
+                    <h2 class="card__text">Кольский п-ов</h2>
+                    <button aria-label="понравилось" class="card__like-button" type="button"></button>
                 </div>
-            </div>
-            <div class="elements__rectangle">
-                <img src="./images/elements__image-kolskiy2.jpg" alt="Кольский" class="elements__image">
-                <div class="elements__name">
-                    <h2 class="elements__text">Кольский</h2>
-                    <button class="elements__like-button" type="button"></button>
+            </article>
+            <article class="card">
+                <img src="./images/card__image-kolskiy2.jpg" alt="Кольский" class="card__image">
+                <div class="card__name">
+                    <h2 class="card__text">Кольский</h2>
+                    <button aria-label="понравилось" class="card__like-button" type="button"></button>
                 </div>
-            </div>
-            <div class="elements__rectangle">
-                <img src="./images/elements__image-sudak.jpg" alt="Судак" class="elements__image">
-                <div class="elements__name">
-                    <h2 class="elements__text">Судак</h2>
-                    <button class="elements__like-button" type="button"></button>
+            </article>
+            <article class="card">
+                <img src="./images/card__image-sudak.jpg" alt="Судак" class="card__image">
+                <div class="card__name">
+                    <h2 class="card__text">Судак</h2>
+                    <button aria-label="понравилось" class="card__like-button" type="button"></button>
                 </div>
-            </div>
+            </article>
         </section>
     </main>
     <footer class="footer">
         <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
-    <div class="popup">
+    <article class="popup">
         <div class="popup__container">
             <button class="popup__close-button" type="button"></button>
             <h2 class="popup__heading">Редактировать профиль</h2>
@@ -83,8 +84,8 @@
                 <button type="submit" name="submit" class="popup__submit">Сoхранить</button>
             </form>
         </div>
-    </div>
-    <script src="./script.js"></script>
+    </article>
+    <script src="./scripts/script.js"></script>
 </body>
 
 </html>
