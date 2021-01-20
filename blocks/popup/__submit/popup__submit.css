@@ -8,12 +8,14 @@
     background-color: #000000;
     color: #FFFFFF;
     margin-top: 18px;
+    border: none;
+    border-radius: 2px;
     cursor: pointer;
 }
 
 .popup__submit:hover {
-    transition: 0.8s ease;
-    opacity: 0.6;
+    transition: 0.5s ease;
+    opacity: 0.8;
 }
 
 @media (max-width: 580px) {
