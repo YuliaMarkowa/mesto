@@ -23,7 +23,6 @@ let buttonClosePopup = document.querySelector('.popup__close-button');
 
  function formSubmitHandler (evt) {
     evt.preventDefault();
-    console.log(formSubmitHandler)
     profileName.textContent = nameInput.value;
     profileCaption.textContent = aboutInput.value;
     closePopup();
