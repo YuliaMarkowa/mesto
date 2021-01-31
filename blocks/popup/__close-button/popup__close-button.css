@@ -11,18 +11,18 @@
     right: -47px;
     cursor: pointer;
     transition: opacity 0.8s ease;
+    outline: none;
 }
 
 .popup__close-button:hover {
     opacity: 0.6;
-    outline: none;
 }
 
 @media (max-width: 580px) {
-.popup__close-button {
-    width: 35px;
-    height: 35px;
-    top: -43.62px;
-    right: -6px;
-}
+    .popup__close-button {
+        width: 35px;
+        height: 35px;
+        top: -43.62px;
+        right: -6px;
+    }
 }
