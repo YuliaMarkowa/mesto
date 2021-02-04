@@ -48,12 +48,12 @@
         </div>
     </article>
 
-    <article class="popup">
+    <article class="popup" id="popup-new-card">
         <div class="popup__container">
             <button aria-label="закрыть" class="popup__close-button" type="button"></button>
             <h2 class="popup__heading">Новое место</h2>
             <form name="form" class="popup__form">
-                <input type="text" placeholder="Название" name="name" class="popup__input popup__input_type_name">
+                <input type="text" placeholder="Название" name="caption" class="popup__input popup__input_type_name">
                 <input type="text" placeholder="Ссылка на картинку" name="link"
                     class="popup__input popup__input_type_about">
                 <button type="submit" name="submit" class="popup__submit">Сoздать</button>
@@ -61,11 +61,11 @@
         </div>
     </article>
 
-    <article class="popup">
-        <div class="popup-image__container">
-            <figure>
+    <article class="popup" id="popup-image">
+        <div class="popup__container">
+            <figure class="popup__figure">
                 <img src="#" alt="" class="popup__image">
-                <figcaption></figcaption>
+                <figcaption class="popup__figcaption"></figcaption>
             </figure>
             <button aria-label="закрыть" class="popup__close-button" type="button"></button>
         </div>
@@ -73,7 +73,7 @@
 
     <template id="card-template">
         <article class="card">
-            <img src="#" alt="" class="card__image">
+            <img src="#" alt="Фотография места" class="card__image">
             <button aria-label="удалить" class="card__delete-button" type="button"></button>
             <div class="card__name">
                 <h2 class="card__text"></h2>
