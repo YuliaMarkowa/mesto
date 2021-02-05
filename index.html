@@ -56,22 +56,22 @@
                 <input type="text" placeholder="Название" name="caption" class="popup__input popup__input_type_name">
                 <input type="text" placeholder="Ссылка на картинку" name="link"
                     class="popup__input popup__input_type_about">
-                <button type="submit" name="submit" class="popup__submit">Сoздать</button>
+                <button type="submit" name="submit" class="popup__create-button">Сoздать</button>
             </form>
         </div>
     </article>
 
-    <article class="popup" id="popup-image">
-        <div class="popup__container">
-            <figure class="popup__figure">
-                <img src="#" alt="" class="popup__image">
-                <figcaption class="popup__figcaption"></figcaption>
+    <article class="popup-photo">
+        <div class="popup-photo__container">
+            <figure class="popup-photo__figure">
+                <img src="#" alt="" class="popup-photo__image">
+                <figcaption class="popup-photo__figcaption"></figcaption>
             </figure>
             <button aria-label="закрыть" class="popup__close-button" type="button"></button>
         </div>
     </article>
 
-    <template id="card-template">
+    <template class="card-template">
         <article class="card">
             <img src="#" alt="Фотография места" class="card__image">
             <button aria-label="удалить" class="card__delete-button" type="button"></button>

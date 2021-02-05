@@ -5,21 +5,25 @@ const profileName = document.querySelector('.profile__name');
 const profileCaption = document.querySelector('.profile__caption');
 
 const formElement = document.querySelector('.popup__form');
+//const submitButton = document.querySelector('.popup__submit');
+const createButton = document.querySelector('.popup__create-button');
 
 const nameInput = document.querySelector('.popup__input[name=name]');
 const aboutInput = document.querySelector('.popup__input[name=about]');
 
-const captionInput = document.querySelector('.popup__input[name=caption]');
-const linkInput = document.querySelector('.popup__input[name=link]');
+const caption = document.querySelector('.popup__input[name=caption]');
+const link = document.querySelector('.popup__input[name=link]');
 
 const editProfileButton = document.querySelector('.profile__edit-button');
 const closePopupButtons = document.querySelectorAll('.popup__close-button');
 const addButton = document.querySelector('.profile__add-button');
 
+const popupPhotoImage = document.querySelector('.popup-photo__image');
+const popupPhotoFigcaption = document.querySelector('.popup-photo__figcaption');
 
 const cardsContainer = document.querySelector('.cards');
 
-const initialCards = [4
+const initialCards = [
     {
       name: 'Архыз',
       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
@@ -47,7 +51,7 @@ const initialCards = [4
   ];
 
 function createCard (name, link) {
-  const cardTemplate = document.querySelector('#card-template').content;
+  const cardTemplate = document.querySelector('.card-template').content;
   const cardElement = cardTemplate.querySelector('.card').cloneNode(true);
   
   cardElement.querySelector('.card__text').textContent = name;
@@ -74,12 +78,28 @@ function addCard() {
 }
 addCard ();
 
-const zoomPhoto = (image, )
+
 
 
  addButton.addEventListener('click', function () {
   openPopup(popupNewCard);
 });
+ 
+function handleAddCard (evt) {
+  console.log('fdfd')   
+  captionInput = caption.value;
+  linkInput = link.value;
+  evt.preventDefault ();
+  createCard ();
+}
+
+
+const viewPhoto = (image, figcaption) => {
+  popupPhotoImage.src = image.src;
+  popupPhotoFigcaption.textContent = figcaption.textContent;
+  openPopup(popupPhoto);
+}
+
 
 
 
@@ -100,8 +120,10 @@ const zoomPhoto = (image, )
     profileCaption.textContent = aboutInput.value;
     closePopup();
 }  
-  
+ 
+ 
+
  editProfileButton.addEventListener('click', () => openPopup (popup));
  closePopupButtons.forEach(button => button.addEventListener('click', closePopup));
  formElement.addEventListener('submit', formSubmitHandler);
-
+ createButton.addEventListener('submit', handleAddCard);
