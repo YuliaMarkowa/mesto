@@ -5,7 +5,9 @@ const profileName = document.querySelector('.profile__name');
 const profileCaption = document.querySelector('.profile__caption');
 
 const formElement = document.querySelector('.popup__form');
-//const submitButton = document.querySelector('.popup__submit');
+const formElementNewCard = document.querySelector('.popup__form-add');
+
+const submitButton = document.querySelector('.popup__submit');
 const createButton = document.querySelector('.popup__create-button');
 
 const nameInput = document.querySelector('.popup__input[name=name]');
@@ -25,28 +27,28 @@ const cardsContainer = document.querySelector('.cards');
 
 const initialCards = [
     {
-      name: 'Архыз',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-      name: 'Челябинская область',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-      name: 'Иваново',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-      name: 'Камчатка',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+      name: 'Байкал',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     },
     {
       name: 'Холмогорский район',
       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
     },
     {
-      name: 'Байкал',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+      name: 'Камчатка',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+    },
+    {
+      name: 'Иваново',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+    },
+    {
+      name: 'Челябинская область',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+    },
+    {
+      name: 'Архыз',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
     }
   ];
 
@@ -67,63 +69,50 @@ function createCard (name, link) {
     evt.target.classList.toggle('card__like-button_active');
   });
   
-  cardsContainer.append(cardElement);
+  cardsContainer.prepend(cardElement);
 }
 
 function addCard() {
-  for (let i=0; i<initialCards.length; i++) {
+    for (let i=0; i<initialCards.length; i++) {
     const { name, link } = initialCards[i];
     createCard(name, link);
   }
 }
+
 addCard ();
 
-
-
-
- addButton.addEventListener('click', function () {
-  openPopup(popupNewCard);
-});
- 
-function handleAddCard (evt) {
-  console.log('fdfd')   
-  captionInput = caption.value;
-  linkInput = link.value;
-  evt.preventDefault ();
-  createCard ();
-}
-
-
-const viewPhoto = (image, figcaption) => {
-  popupPhotoImage.src = image.src;
-  popupPhotoFigcaption.textContent = figcaption.textContent;
-  openPopup(popupPhoto);
-}
-
-
-
-
  function openPopup(popup) {
-     nameInput.value = profileName.textContent;
-     aboutInput.value = profileCaption.textContent;
-     popup.classList.add('popup_opened');
+    nameInput.value = profileName.textContent;
+    aboutInput.value = profileCaption.textContent;
+    popup.classList.add('popup_opened');
  }
 
  function closePopup(evt) {
-     const popup = evt.target.closest('.popup');
-     popup.classList.remove('popup_opened');
+    const popup = evt.target.closest('.popup');
+    popup.classList.remove('popup_opened');
  }
 
  function formSubmitHandler (evt) {
     evt.preventDefault();
     profileName.textContent = nameInput.value;
     profileCaption.textContent = aboutInput.value;
-    closePopup();
+    closePopup(evt);
 }  
- 
- 
 
- editProfileButton.addEventListener('click', () => openPopup (popup));
- closePopupButtons.forEach(button => button.addEventListener('click', closePopup));
- formElement.addEventListener('submit', formSubmitHandler);
- createButton.addEventListener('submit', handleAddCard);
+function handleAddCard (evt) { 
+    evt.preventDefault ();
+    captionInput = caption.value;
+    linkInput = link.value;
+    createCard (caption, link);
+    closePopup(evt);
+} 
+
+
+
+
+ 
+addButton.addEventListener('click', () => openPopup(popupNewCard));
+editProfileButton.addEventListener('click', () => openPopup (popup));
+closePopupButtons.forEach(button => button.addEventListener('click', closePopup));
+formElement.addEventListener('submit', formSubmitHandler);
+formElementNewCard.addEventListener('submit', handleAddCard);

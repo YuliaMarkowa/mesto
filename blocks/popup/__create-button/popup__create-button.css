@@ -19,3 +19,9 @@
 .popup__create-button:hover {
     opacity: 0.8;
 }
+
+@media (max-width: 580px) {
+    .popup__create-button {
+        width: 238px;
+    }
+}
