@@ -19,11 +19,14 @@ const link = document.querySelector('.popup__input[name=link]');
 const editProfileButton = document.querySelector('.profile__edit-button');
 const closePopupButtons = document.querySelectorAll('.popup__close-button');
 const addButton = document.querySelector('.profile__add-button');
+const closeButtonPopupPhoto = document.querySelector('.popup-photo__close-button');
 
 const popupPhotoImage = document.querySelector('.popup-photo__image');
 const popupPhotoFigcaption = document.querySelector('.popup-photo__figcaption');
 
 const cardsContainer = document.querySelector('.cards');
+
+const popupPhoto = document.querySelector('.popup-photo');
 
 const initialCards = [
     {
@@ -59,6 +62,14 @@ function createCard (name, link) {
   cardElement.querySelector('.card__text').textContent = name;
   cardElement.querySelector('.card__image').src = link;
 
+  const cardImage = cardElement.querySelector('.card__image');
+
+cardImage.addEventListener('click', () => {
+  popupPhoto.classList.add('popup-photo_opened');
+  popupPhotoImage.src = link;
+  popupPhotoFigcaption.textContent = captionInput.textContent;   
+});
+
   const deleteButton = cardElement.querySelector('.card__delete-button');
   deleteButton.addEventListener('click', function () {
   const cardElement = deleteButton.closest('.card');
@@ -75,11 +86,12 @@ function createCard (name, link) {
 function addCard() {
     for (let i=0; i<initialCards.length; i++) {
     const { name, link } = initialCards[i];
-    createCard(name, link);
+    createCard(name, link);    
   }
 }
 
 addCard ();
+
 
  function openPopup(popup) {
     nameInput.value = profileName.textContent;
@@ -101,16 +113,16 @@ addCard ();
 
 function handleAddCard (evt) { 
     evt.preventDefault ();
-    captionInput = caption.value;
-    linkInput = link.value;
-    createCard (caption, link);
+    let captionInput = caption.value;
+    let linkInput = link.value;
+    createCard (captionInput, linkInput);
     closePopup(evt);
-} 
+}
 
 
-
-
- 
+closeButtonPopupPhoto.addEventListener('click', () => {
+  popupPhoto.classList.remove('popup-photo_opened');
+});
 addButton.addEventListener('click', () => openPopup(popupNewCard));
 editProfileButton.addEventListener('click', () => openPopup (popup));
 closePopupButtons.forEach(button => button.addEventListener('click', closePopup));
