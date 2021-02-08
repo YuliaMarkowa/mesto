@@ -1,6 +1,5 @@
 const popup = document.querySelector('.popup');
 const popupNewCard = document.querySelector('#popup-new-card');
-const popupPhoto = document.querySelector('.popup-photo');
 
 const profileName = document.querySelector('.profile__name');
 const profileCaption = document.querySelector('.profile__caption');
@@ -27,7 +26,7 @@ const popupPhotoFigcaption = document.querySelector('.popup-photo__figcaption');
 
 const cardsContainer = document.querySelector('.cards');
 
-
+const popupPhoto = document.querySelector('.popup-photo');
 
 const initialCards = [
     {
