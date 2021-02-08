@@ -10,7 +10,5 @@ flex
 
 картинки оптимизированы
 
-фотографии из личной коллекции
-
 Ссылка на сайт: https://yuliamarkowa.github.io/mesto/index.html
 
