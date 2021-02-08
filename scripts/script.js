@@ -63,11 +63,12 @@ function createCard (name, link) {
   cardElement.querySelector('.card__image').src = link;
 
   const cardImage = cardElement.querySelector('.card__image');
-
+  const figcaption = cardElement.querySelector('.card__text');
+  
 cardImage.addEventListener('click', () => {
   popupPhoto.classList.add('popup-photo_opened');
   popupPhotoImage.src = link;
-  popupPhotoFigcaption.textContent = captionInput.textContent;   
+  popupPhotoFigcaption.textContent = figcaption.textContent;   
 });
 
   const deleteButton = cardElement.querySelector('.card__delete-button');
