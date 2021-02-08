@@ -6,7 +6,7 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-color: transparent;
-    border: none;    
+    border: none;
     cursor: pointer;
     padding: 0;
     transition: opacity 0.5s ease;
@@ -17,5 +17,5 @@
 }
 
 .card__delete-button:hover {
-    opacity: 0.6;    
+    opacity: 0.6;
 }

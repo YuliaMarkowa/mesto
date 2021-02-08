@@ -1,6 +1,6 @@
 .popup-photo__container {
     display: flex;
-    position: relative; 
+    position: relative;
     max-width: 75vw;
     max-height: 75vh;
     padding: 0;
@@ -11,7 +11,7 @@
 
 @media (max-width: 580px) {
     .popup-photo__container {
-        max-width: 240px;        
+        max-width: 240px;
         padding-left: 40px;
         padding-right: 40px;
     }
