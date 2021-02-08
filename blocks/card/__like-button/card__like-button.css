@@ -10,17 +10,10 @@
     margin-right: 5px;
     cursor: pointer;
     padding: 0;
-    transition: 0.5s ease;
+    transition: opacity 0.5s ease;
+    outline: none;
 }
 
 .card__like-button:hover {
-    opacity: 0.6;   
+    opacity: 0.6;
 }
-
-.card__like-button:focus {
-    outline: none;
-    background-image: url(../../../images/like-button_active.svg);
-}
-
-
- 
