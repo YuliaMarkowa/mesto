@@ -22,8 +22,8 @@ const link = document.querySelector('.popup__input[name=link]');
 const editProfileButton = document.querySelector('.profile__edit-button');
 
 
-//const closePopupButtons = document.querySelectorAll('.popup__close-button');
-const closePopupButton = document.querySelector('.popup__close-button');
+const closePopupButtons = document.querySelectorAll('.popup__close-button');
+//const closePopupButton = document.querySelector('.popup__close-button');
 
 
 
@@ -83,7 +83,7 @@ function createCard (item) {
 cardImage.addEventListener('click', () => {
   openPopup(popupPhoto);
   popupPhotoImage.src = item.link;
-  popupPhotoFigcaption.textContent = figcaption.textContent; 
+  popupPhotoFigcaption.textContent = figcaption.textContent;
 });
 
   const deleteButton = cardElement.querySelector('.card__delete-button');
@@ -153,11 +153,11 @@ function handleProfileFormSubmit (evt) {
  //} 
 
 
-
+ 
 addButton.addEventListener('click', () => openPopup(popupNewCard));
 editProfileButton.addEventListener('click', () => openPopup (popup));
-//closePopupButtons.forEach(button => button.addEventListener('click', closePopup));
-closePopupButton.addEventListener('click', closePopup);
+closePopupButtons.forEach(button => button.addEventListener('click', closePopup));
+//closePopupButton.addEventListener('click', closePopup);
 
 
 
