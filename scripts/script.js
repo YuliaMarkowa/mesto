@@ -1,5 +1,3 @@
-const popupOverlays = document.querySelector('.popup');
-
 const popupProfile = document.querySelector('.popup_type_profile');
 const popupNewCard = document.querySelector('.popup_type_new-card');
 const popupPhoto = document.querySelector('.popup_type_image');
@@ -28,8 +26,6 @@ const popupPhotoFigcaption = document.querySelector('.popup__figcaption');
 
 const cardsContainer = document.querySelector('.cards');
 const cardTemplate = document.querySelector('.card-template').content;
-
-
 
 function addCards() {
   const array = initialCards
@@ -75,22 +71,21 @@ function handleAddCard(evt) {
   const listItem = createCard(cardData);
   cardsContainer.prepend(listItem);
   closePopup(popupNewCard);
-  caption.value = ''
-  link.value = ''
+  formElementNewCard.reset();
 };
 
-function openPopup(popupOverlays) {
-  popupOverlays.classList.add('popup_opened');
+function openPopup(popup) {
+  popup.classList.add('popup_opened');
 };
 
-function closePopup(popupOverlays) {
-  popupOverlays.classList.remove('popup_opened');
+function closePopup(popup) {
+  popup.classList.remove('popup_opened');
 };
 
 function openProfilePopup() {
   nameInput.value = profileName.textContent;
   aboutInput.value = profileCaption.textContent;
-  openPopup(popupOverlays);
+  openPopup(popupProfile);
 };
 
 function handleProfileFormSubmit(evt) {
