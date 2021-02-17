@@ -4,6 +4,6 @@
 
 @media (max-width: 580px) {
     .popup__close-button_image {
-        right: 35px;
+        right: 0px;
     }
 }
