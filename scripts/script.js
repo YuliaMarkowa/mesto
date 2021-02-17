@@ -6,10 +6,10 @@ const editProfileButton = document.querySelector(".profile__edit-button");
 const addButton = document.querySelector(".profile__add-button");
 const closePopupButtons = document.querySelectorAll(".popup__close-button");
 
-const submitButton = document.querySelector(".popup__submit");
-const createButton = document.querySelector(".popup__create-button");
+//const submitButton = document.querySelector(".popup__submit");
+//const createButton = document.querySelector(".popup__create-button");
 
-const formElementEdit = document.querySelector(".popup__form");
+const formElementEdit = document.querySelector(".popup__form-edit");
 const formElementNewCard = document.querySelector(".popup__form-add");
 
 const profileName = document.querySelector(".profile__name");
@@ -98,6 +98,7 @@ function handleProfileFormSubmit(evt) {
 
 addButton.addEventListener("click", () => openPopup(popupNewCard));
 editProfileButton.addEventListener("click", () => openProfilePopup());
+
 closePopupButtons.forEach((button) =>
   button.addEventListener("click", (evt) =>
     closePopup(evt.target.closest(".popup"))
