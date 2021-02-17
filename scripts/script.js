@@ -73,15 +73,25 @@ function handleAddCard(evt) {
   cardsContainer.prepend(listItem);
   closePopup(popupNewCard);
   formElementNewCard.reset();
-}
+};
+
+const escapeHandler = (evt) => {
+  //const screenPopup = document.querySelector("popup_opened");
+  if (evt.key === "Escape") {
+    closePopup(screenPopup);
+  }
+};
 
 function openPopup(popup) {
   popup.classList.add("popup_opened");
+  document.addEventListener("keydown", escapeHandler)
 }
 
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
+  document.removeEventListener("keydown", escapeHandler)
 }
+
 
 function openProfilePopup() {
   nameInput.value = profileName.textContent;
@@ -94,7 +104,7 @@ function handleProfileFormSubmit(evt) {
   profileName.textContent = nameInput.value;
   profileCaption.textContent = aboutInput.value;
   closePopup(popupProfile);
-}
+};
 
 addButton.addEventListener("click", () => openPopup(popupNewCard));
 editProfileButton.addEventListener("click", () => openProfilePopup());
