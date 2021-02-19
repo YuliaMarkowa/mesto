@@ -3,6 +3,8 @@ const popupNewCard = document.querySelector(".popup_type_new-card");
 const popupPhoto = document.querySelector(".popup_type_image");
 
 const overlays = document.querySelectorAll(".popup");
+const saveButton = document.querySelector(".popup__submit_save");
+const createButton = document.querySelector(".popup__submit_create");
 
 const editProfileButton = document.querySelector(".profile__edit-button");
 const addButton = document.querySelector(".profile__add-button");
@@ -33,12 +35,12 @@ function addCards() {
 
 function createCard(item) {
   const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
-  cardElement.querySelector(".card__text").textContent = item.name;
-
   const figcaption = cardElement.querySelector(".card__text");
+  figcaption.textContent = item.name;
+
   const cardImage = cardElement.querySelector(".card__image");
-  cardElement.querySelector(".card__image").src = item.link;
-  cardElement.querySelector(".card__image").alt = item.name;
+  cardImage.src = item.link;
+  cardImage.alt = item.name;
 
   cardImage.addEventListener("click", () => {
     popupPhotoImage.src = item.link;
@@ -62,6 +64,8 @@ function createCard(item) {
 
 function handleAddCard(evt) {
   evt.preventDefault();
+  createButton.setAttribute("disabled", true);
+  createButton.classList.add("popup__submit_disabled");
 
   const cardData = {
     name: caption.value,
@@ -104,6 +108,8 @@ function closePopup(popup) {
 }
 
 function openProfilePopup() {
+  saveButton.setAttribute("disabled", true);
+  saveButton.classList.add("popup__submit_disabled");
   nameInput.value = profileName.textContent;
   aboutInput.value = profileCaption.textContent;
   openPopup(popupProfile);
