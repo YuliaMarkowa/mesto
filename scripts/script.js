@@ -45,6 +45,7 @@ function createCard(item) {
   cardImage.addEventListener("click", () => {
     popupPhotoImage.src = item.link;
     popupPhotoFigcaption.textContent = figcaption.textContent;
+    popupPhotoImage.alt = `Изображение места: ${figcaption.textContent}`
     openPopup(popupPhoto);
   });
 
