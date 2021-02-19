@@ -8,5 +8,11 @@
     color: #000000;
     margin-bottom: 30px;
     padding: 1px 0 9px;
-    width: 100%;
+    width: 358px;
+}
+
+@media (max-width: 580px) {
+    .popup__input {
+        max-width: 238px;
+    }
 }
