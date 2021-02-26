@@ -65,8 +65,8 @@ function createCard(item) {
 
 function handleAddCard(evt) {
   evt.preventDefault();
-  createButton.setAttribute("disabled", true);
-  createButton.classList.add("popup__submit_disabled");
+  //createButton.setAttribute("disabled", true);
+  //createButton.classList.add("popup__submit_disabled");
 
   const cardData = {
     name: caption.value,
@@ -76,7 +76,7 @@ function handleAddCard(evt) {
   const listItem = createCard(cardData);
   cardsContainer.prepend(listItem);
   closePopup(popupNewCard);
-  formElementNewCard.reset();
+  //formElementNewCard.reset();
 }
 
 const closeOverlayPopup = (evt) => {
@@ -106,6 +106,9 @@ function closePopup(popup) {
   overlays.forEach((element) =>
     element.removeEventListener("click", closeOverlayPopup)
   );
+  createButton.setAttribute("disabled", true);
+  createButton.classList.add("popup__submit_disabled");
+  formElementNewCard.reset();
 }
 
 function openProfilePopup() {
