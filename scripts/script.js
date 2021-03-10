@@ -76,7 +76,7 @@ function handleAddCard(evt) {
   const listItem = createCard(cardData);
   cardsContainer.prepend(listItem);
   closePopup(popupNewCard);
-  //formElementNewCard.reset();
+  formElementNewCard.reset();
 }
 
 const closeOverlayPopup = (evt) => {
