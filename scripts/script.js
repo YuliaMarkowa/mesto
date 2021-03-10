@@ -28,6 +28,8 @@ const popupPhotoFigcaption = document.querySelector(".popup__figcaption");
 const cardsContainer = document.querySelector(".cards");
 const cardTemplate = document.querySelector(".card-template").content;
 
+
+
 function addCards() {
   const array = initialCards.map(createCard);
   cardsContainer.prepend(...array);
