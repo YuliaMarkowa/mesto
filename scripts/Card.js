@@ -1,4 +1,9 @@
+export { Card };
+
 const cardTemplate = document.querySelector(".card-template").content;
+const popupPhoto = document.querySelector(".popup_type_image");
+const popupPhotoImage = document.querySelector(".popup__image");
+const popupPhotoFigcaption = document.querySelector(".popup__figcaption");
 
 class Card {
   constructor(data, cardSelector) {
@@ -8,7 +13,7 @@ class Card {
   }
 
   _getTemplate() {
-    const cardElement = this._cardTemplate
+    const cardElement = cardTemplate
       .querySelector(".card")
       .cloneNode(true);
 
@@ -17,13 +22,15 @@ class Card {
 
   generateCard() {
     this._element = this._getTemplate;
-    this._setEventListeners();
-
+    
     this._cardImage = this._element.querySelector(".card__image");
     this._figcaption = this._element.querySelector(".card__text");
+
     this._cardImage.src = this._link;
     this._cardImage.alt = this._name;
     this._figcaption.textContent = this._name;
+
+    this._setEventListeners();
 
     return this._element;
   }
@@ -60,11 +67,6 @@ class Card {
   }
 }
 
-const addCards = (data) => {
-  data.forEach((item) => {
-    const card = new Card(item, ".card");
-    const cardElement = card.generateCard();
 
-    cardsContainer.prepend(cardElement);
-  });
-};
+
+
