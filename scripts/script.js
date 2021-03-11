@@ -1,5 +1,6 @@
 import { Card } from "./Card.js";
 import { initialCards } from "./initial-cards.js";
+import { FormValidator } from "./FormValidator.js";
 
 const popupProfile = document.querySelector(".popup_type_profile");
 const popupNewCard = document.querySelector(".popup_type_new-card");
@@ -14,6 +15,7 @@ const closePopupButtons = document.querySelectorAll(".popup__close-button");
 
 const formElementEdit = document.querySelector(".popup__form-edit");
 const formElementNewCard = document.querySelector(".popup__form-add");
+const forms = document.querySelectorAll(".popup__form");
 
 const profileName = document.querySelector(".profile__name");
 const profileCaption = document.querySelector(".profile__caption");
@@ -52,7 +54,7 @@ const handleAddCard = (evt) => {
   addCards(cardData);
   closePopup(popupNewCard);
   formElementNewCard.reset();
-}
+};
 
 const closeOverlayPopup = (evt) => {
   if (evt.target === evt.currentTarget) {
@@ -72,7 +74,7 @@ const viewCardImage = (link, figcaption) => {
   popupPhotoFigcaption.textContent = figcaption.textContent;
   popupPhotoImage.alt = `Изображение места: ${figcaption.textContent}`;
   openPopup(popupPhoto);
-}
+};
 
 function openPopup(popup) {
   popup.classList.add("popup_opened");
@@ -108,6 +110,21 @@ function handleProfileFormSubmit(evt) {
   closePopup(popupProfile);
 }
 
+const validityForms = (forms) => {
+  const settingObject = {
+    inputSelector: ".popup__input",
+    submitButtonSelector: ".popup__submit",
+    inactiveButtonClass: "popup__submit_disabled",
+    inputErrorClass: "popup__input_type_error",
+    errorClass: "popup__input-error_active",
+  };
+
+  forms.forEach((element) => {
+    const form = new FormValidator(settingObject, element);
+    form.enableValidation();
+  });
+};
+
 addButton.addEventListener("click", () => openPopup(popupNewCard));
 editProfileButton.addEventListener("click", () => openProfilePopup());
 
@@ -118,7 +135,7 @@ closePopupButtons.forEach((button) =>
 );
 
 formElementEdit.addEventListener("submit", handleProfileFormSubmit);
-
 formElementNewCard.addEventListener("submit", handleAddCard);
 
 addCards(initialCards);
+validityForms(forms);
