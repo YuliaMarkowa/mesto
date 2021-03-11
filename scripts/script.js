@@ -1,11 +1,8 @@
 import { Card } from "./Card.js";
 import { initialCards } from "./initial-cards.js";
 
-
-
 const popupProfile = document.querySelector(".popup_type_profile");
 const popupNewCard = document.querySelector(".popup_type_new-card");
-//const popupPhoto = document.querySelector(".popup_type_image");
 
 const overlays = document.querySelectorAll(".popup");
 const saveButton = document.querySelector(".popup__submit_save");
@@ -27,72 +24,32 @@ const aboutInput = document.querySelector(".popup__input[name=about]");
 const caption = document.querySelector(".popup__input[name=caption]");
 const link = document.querySelector(".popup__input[name=link]");
 
-//const popupPhotoImage = document.querySelector(".popup__image");
-//const popupPhotoFigcaption = document.querySelector(".popup__figcaption");
+const popupPhoto = document.querySelector(".popup_type_image");
+const popupPhotoImage = document.querySelector(".popup__image");
+const popupPhotoFigcaption = document.querySelector(".popup__figcaption");
 
 const cardsContainer = document.querySelector(".cards");
-//const cardTemplate = document.querySelector(".card-template").content;
 
-
-
-//function addCards() {
- // const array = initialCards.map(createCard);
- // cardsContainer.prepend(...array);
-//}
-
-//function createCard(item) {
- // const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
- // const figcaption = cardElement.querySelector(".card__text");
-  //figcaption.textContent = item.name;
-
- // const cardImage = cardElement.querySelector(".card__image");
- // cardImage.src = item.link;
- // cardImage.alt = item.name;
-
-  //cardImage.addEventListener("click", () => {
-   // popupPhotoImage.src = item.link;
-   // popupPhotoFigcaption.textContent = figcaption.textContent;
-  //  popupPhotoImage.alt = `Изображение места: ${figcaption.textContent}`;
-  //  openPopup(popupPhoto);
-  //});
-
-  //const deleteButton = cardElement.querySelector(".card__delete-button");
-  //deleteButton.addEventListener("click", function () {
-  //  cardElement.remove();
-  //});
-
-  //cardElement
-   // .querySelector(".card__like-button")
-    //.addEventListener("click", function (evt) {
-    //  evt.target.classList.toggle("card__like-button_active");
-    //});
-
-  //return cardElement;
-//}
-
-const addCards = (array) => {
-  array.forEach((item) => {
-    const card = new Card(item, ".card");
+const addCards = (data) => {
+  data.forEach((item) => {
+    const card = new Card(item, ".card", viewCardImage);
     const cardElement = card.generateCard();
 
     cardsContainer.prepend(cardElement);
   });
 };
 
-
-
-function handleAddCard(evt) {
+const handleAddCard = (evt) => {
   evt.preventDefault();
-  //createButton.setAttribute("disabled", true);
-  //createButton.classList.add("popup__submit_disabled");
 
-  const cardData = {
-    name: caption.value,
-    link: link.value,
-  };
+  const cardData = [
+    {
+      name: caption.value,
+      link: link.value,
+    },
+  ];
 
-  const listItem = createCard(cardData);
-  cardsContainer.prepend(listItem);
+  addCards(cardData);
   closePopup(popupNewCard);
   formElementNewCard.reset();
 }
@@ -109,6 +66,13 @@ const escapeHandler = (evt) => {
     closePopup(screenPopup);
   }
 };
+
+const viewCardImage = (link, figcaption) => {
+  popupPhotoImage.src = link;
+  popupPhotoFigcaption.textContent = figcaption.textContent;
+  popupPhotoImage.alt = `Изображение места: ${figcaption.textContent}`;
+  openPopup(popupPhoto);
+}
 
 function openPopup(popup) {
   popup.classList.add("popup_opened");
@@ -154,7 +118,7 @@ closePopupButtons.forEach((button) =>
 );
 
 formElementEdit.addEventListener("submit", handleProfileFormSubmit);
+
 formElementNewCard.addEventListener("submit", handleAddCard);
 
 addCards(initialCards);
-
