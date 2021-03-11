@@ -1,28 +1,24 @@
 export { Card };
 
 const cardTemplate = document.querySelector(".card-template").content;
-const popupPhoto = document.querySelector(".popup_type_image");
-const popupPhotoImage = document.querySelector(".popup__image");
-const popupPhotoFigcaption = document.querySelector(".popup__figcaption");
 
 class Card {
-  constructor(data, cardSelector) {
+  constructor(data, cardSelector, viewCardImage) {
     this._name = data.name;
     this._link = data.link;
     this.cardSelector = cardSelector;
+    this._viewCardImage = viewCardImage;
   }
 
   _getTemplate() {
-    const cardElement = cardTemplate
-      .querySelector(".card")
-      .cloneNode(true);
+    const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
 
     return cardElement;
   }
 
   generateCard() {
-    this._element = this._getTemplate;
-    
+    this._element = this._getTemplate();
+
     this._cardImage = this._element.querySelector(".card__image");
     this._figcaption = this._element.querySelector(".card__text");
 
@@ -36,37 +32,28 @@ class Card {
   }
 
   _setEventListeners() {
-    this._deleteButton.addEventListener("click", () => {
-      this._deleteCard();
-    });
+    this._element
+      .querySelector(".card__like-button")
+      .addEventListener("click", (evt) => {
+        this._likeCard(evt);
+      });
 
-    this._likeButton.addEventListener("click", () => {
-      this._likeCard();
-    });
+    this._element
+      .querySelector(".card__delete-button")
+      .addEventListener("click", (evt) => {
+        this._deleteCard(evt);
+      });
 
     this._cardImage.addEventListener("click", () => {
-      this._viewCardImage();
+      this._viewCardImage(this._link, this._figcaption);
     });
-  }
-
-  _deleteCard(evt) {
-    this._deleteButton = this._element.querySelector(".card__delete-button");
-    evt.target.closest.cardElement.remove();
   }
 
   _likeCard(evt) {
-    this._likeButton = this._element.querySelector(".card__like-button");
     evt.target.classList.toggle("card__like-button_active");
   }
 
-  _viewCardImage() {
-    popupPhotoImage.src = this._link;
-    popupPhotoFigcaption.textContent = this._figcaption.textContent;
-    //popupPhotoImage.alt = `Изображение места: ${figcaption.textContent}`;
-    openPopup(popupPhoto);
+  _deleteCard(evt) {
+    evt.target.closest(".card").remove();
   }
 }
-
-
-
-
