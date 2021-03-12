@@ -1,17 +1,16 @@
 export { Card };
 
-const cardTemplate = document.querySelector(".card-template").content;
-
 class Card {
   constructor(data, cardSelector, viewCardImage) {
     this._name = data.name;
     this._link = data.link;
     this.cardSelector = cardSelector;
     this._viewCardImage = viewCardImage;
+    this._cardTemplate = document.querySelector(".card-template").content;
   }
 
   _getTemplate() {
-    const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
+    const cardElement = this._cardTemplate.querySelector(".card").cloneNode(true);
 
     return cardElement;
   }
