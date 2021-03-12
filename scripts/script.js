@@ -15,7 +15,6 @@ const closePopupButtons = document.querySelectorAll(".popup__close-button");
 
 const formElementEdit = document.querySelector(".popup__form-edit");
 const formElementNewCard = document.querySelector(".popup__form-add");
-const forms = document.querySelectorAll(".popup__form");
 
 const profileName = document.querySelector(".profile__name");
 const profileCaption = document.querySelector(".profile__caption");
@@ -39,6 +38,12 @@ const settingObject = {
   inputErrorClass: "popup__input_type_error",
   errorClass: "popup__input-error_active",
 };
+
+const addCardValidator = new FormValidator(settingObject, formElementNewCard);
+addCardValidator.enableValidation();
+
+const profileValidator = new FormValidator(settingObject, formElementEdit);
+profileValidator.enableValidation();
 
 function createCard(item) {
   const card = new Card(item, ".card", viewCardImage);
@@ -109,12 +114,6 @@ function handleProfileFormSubmit(evt) {
   profileCaption.textContent = aboutInput.value;
   closePopup(popupProfile);
 }
-
-const addCardValidator = new FormValidator(settingObject, formElementNewCard);
-addCardValidator.enableValidation();
-
-const profileValidator = new FormValidator(settingObject, formElementEdit);
-profileValidator.enableValidation();
 
 function openCardPopup(evt) {
   evt.preventDefault();
