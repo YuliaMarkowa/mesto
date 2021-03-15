@@ -6,8 +6,6 @@ const popupProfile = document.querySelector(".popup_type_profile");
 const popupNewCard = document.querySelector(".popup_type_new-card");
 
 const overlays = document.querySelectorAll(".popup");
-const saveButton = document.querySelector(".popup__submit_save");
-const createButton = document.querySelector(".popup__submit_create");
 
 const editProfileButton = document.querySelector(".profile__edit-button");
 const addButton = document.querySelector(".profile__add-button");
@@ -101,10 +99,9 @@ function closePopup(popup) {
 }
 
 function openProfilePopup() {
-  saveButton.setAttribute("disabled", true);
-  saveButton.classList.add("popup__submit_disabled");
   nameInput.value = profileName.textContent;
   aboutInput.value = profileCaption.textContent;
+  profileValidator.resetValidation();
   openPopup(popupProfile);
 }
 
@@ -118,7 +115,7 @@ function handleProfileFormSubmit(evt) {
 function openCardPopup(evt) {
   evt.preventDefault();
   formElementNewCard.reset();
-  addCardValidator.disableSubmitButton();
+  addCardValidator.resetValidation();
   openPopup(popupNewCard);
 }
 
