@@ -4,13 +4,15 @@ class Card {
   constructor(data, cardSelector, viewCardImage) {
     this._name = data.name;
     this._link = data.link;
-    this.cardSelector = cardSelector;
+    this._cardSelector = cardSelector;
     this._viewCardImage = viewCardImage;
-    this._cardTemplate = document.querySelector(".card-template").content;
   }
 
   _getTemplate() {
-    const cardElement = this._cardTemplate.querySelector(".card").cloneNode(true);
+    const cardElement = document
+    .querySelector(this._cardSelector)
+    .content
+    .querySelector(".card").cloneNode(true);
 
     return cardElement;
   }

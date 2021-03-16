@@ -44,7 +44,7 @@ const profileValidator = new FormValidator(settingObject, formElementEdit);
 profileValidator.enableValidation();
 
 function createCard(item) {
-  const card = new Card(item, ".card", viewCardImage);
+  const card = new Card(item, ".card-template", viewCardImage);
   return card.generateCard();
 }
 
