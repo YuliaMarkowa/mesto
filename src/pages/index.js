@@ -5,12 +5,14 @@ import {
   formElementNewCard,
   editProfileButton,
   addButton,
-  profileName,
-  profileCaption,
+  nameInput,
+  aboutInput,
   cardsContainer,
   popupProfile,
   popupNewCard,
   popupPhoto,
+  profileName,
+  profileCaption
 } from "../utils/constants.js";
 
 import Card from "../components/Card.js";
@@ -20,11 +22,11 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 
-//Экземпляр попапа с фотографией
+//попап-фотография
 const popupWithPhoto = new PopupWithImage(popupPhoto);
 popupWithPhoto.setEventListeners();
 
-//Функция создания карточки
+//функция создания карточки
 const createCard = (item) => {
   const card = new Card(item, ".card-template", (item) => {
     popupWithPhoto.open(item.link, item.name);
@@ -32,26 +34,26 @@ const createCard = (item) => {
   return card.generateCard();
 };
 
-//Попап с данными пользователя
-const userInfo = new UserInfo("profile__name", "profile__caption");
+//попап с данными пользователя
+const userInfo = new UserInfo(profileName, profileCaption);
+
+const profilePopup = new PopupWithForm(popupProfile, handleProfileFormSubmit);
+profilePopup.setEventListeners();
 
 const handleProfileFormSubmit = ({ name, caption }) => {
   userInfo.setUserInfo({ name, caption });
   profilePopup.close();
 };
 
-const profilePopup = new PopupWithForm(popupProfile, handleProfileFormSubmit);
-profilePopup.setEventListeners();
+//попап добавления новой карточки
+const newCardPopup = new PopupWithForm(popupNewCard, handleAddCard);
+newCardPopup.setEventListeners();
 
-//Попап добавления новой карточки
 const handleAddCard = ({ name, link }) => {
   const cardElement = createCard({ name, link });
   cardList.addItem(cardElement);
   newCardPopup.close();
 };
-
-const newCardPopup = new PopupWithForm(popupNewCard, handleAddCard);
-newCardPopup.setEventListeners();
 
 //карточки из коробки
 const cardList = new Section(
@@ -74,8 +76,8 @@ const profileValidator = new FormValidator(settingObject, formElementEdit);
 profileValidator.enableValidation();
 
 editProfileButton.addEventListener("click", () => {
-  profileName.value = userInfo.getUserInfo().name;
-  profileCaption.value = userInfo.getUserInfo().caption;
+  nameInput.value = userInfo.getUserInfo().name;
+  aboutInput.value = userInfo.getUserInfo().caption;
   profilePopup.open();
 });
 
