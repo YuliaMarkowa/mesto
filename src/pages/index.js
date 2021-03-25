@@ -7,12 +7,6 @@ import {
   addButton,
   nameInput,
   aboutInput,
-  cardsContainer,
-  popupProfile,
-  popupNewCard,
-  popupPhoto,
-  profileName,
-  profileCaption
 } from "../utils/constants.js";
 
 import Card from "../components/Card.js";
@@ -29,48 +23,47 @@ const profileValidator = new FormValidator(settingObject, formElementEdit);
 profileValidator.enableValidation();
 
 //попап-фотография
-const popupWithPhoto = new PopupWithImage(popupPhoto);
+const popupWithPhoto = new PopupWithImage(".popup_type_image");
 popupWithPhoto.setEventListeners();
 
 //функция создания карточки
-const createCard = (item) => {
-  const card = new Card(item, ".card-template", (item) => {
-    popupWithPhoto.open(item.link, item.name);
+const createCard = ({ name, link }) => {
+  const card = new Card({ name, link }, ".card-template", (link, name) => {
+    popupWithPhoto.open(link, name);
   });
   return card.generateCard();
 };
 
 //попап с данными пользователя
-const userInfo = new UserInfo(profileName, profileCaption);
-
-const profilePopup = new PopupWithForm(popupProfile, handleProfileFormSubmit);
-profilePopup.setEventListeners();
-
+const userInfo = new UserInfo(".profile__name", ".profile__caption");
 const handleProfileFormSubmit = ({ name, caption }) => {
   userInfo.setUserInfo({ name, caption });
   profilePopup.close();
 };
 
-//попап добавления новой карточки
-const newCardPopup = new PopupWithForm(popupNewCard, handleAddCard);
-newCardPopup.setEventListeners();
+const profilePopup = new PopupWithForm(".popup_type_profile", handleProfileFormSubmit);
+profilePopup.setEventListeners();
 
+//попап добавления новой карточки
 const handleAddCard = ({ name, link }) => {
   const cardElement = createCard({ name, link });
   cardList.addItem(cardElement);
   newCardPopup.close();
 };
 
+const newCardPopup = new PopupWithForm(".popup_type_new-card", handleAddCard);
+newCardPopup.setEventListeners();
+
 //карточки из коробки
 const cardList = new Section(
   {
     items: initialCards,
-    renderer: (item) => {
-      const cardElement = createCard(item);
+    renderer: ({ name, link }) => {
+      const cardElement = createCard({ name, link });
       cardList.addItem(cardElement);
     },
   },
-  cardsContainer
+  ".cards"
 );
 
 cardList.renderItems();
@@ -85,36 +78,3 @@ addButton.addEventListener("click", () => {
   addCardValidator.resetValidation();
   newCardPopup.open();
 });
-//const handleAddCard = (evt) => {
- // evt.preventDefault();
-
- // const cardData = {
-   // name: caption.value,
-   // link: link.value,
- // };
-
- // cardsContainer.prepend(createCard(cardData));
- // closePopup(popupNewCard);
- // formElementNewCard.reset();
-//};
-
-//function openCardPopup(evt) {
- // evt.preventDefault();
- // formElementNewCard.reset();
- // addCardValidator.resetValidation();
- // openPopup(popupNewCard);
-//}
-
-//function openProfilePopup() {
-  //nameInput.value = profileName.textContent;
- // aboutInput.value = profileCaption.textContent;
- // profileValidator.resetValidation();
- // openPopup(popupProfile);
-//}
-
-//function handleProfileFormSubmit(evt) {
- // evt.preventDefault();
- // profileName.textContent = nameInput.value;
- // profileCaption.textContent = aboutInput.value;
- // closePopup(popupProfile);
-//}
