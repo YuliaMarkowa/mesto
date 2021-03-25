@@ -46,8 +46,8 @@ export const profileCaption = document.querySelector(".profile__caption");
 export const popupProfile = document.querySelector(".popup_type_profile");
 export const popupNewCard = document.querySelector(".popup_type_new-card");
 export const popupPhoto = document.querySelector(".popup_type_image");
-//export const nameInput = document.querySelector(".popup__input[name=name]");
-//export const aboutInput = document.querySelector(".popup__input[name=about]");
+export const nameInput = document.querySelector(".popup__input[name=name]");
+export const aboutInput = document.querySelector(".popup__input[name=about]");
 
 //export const overlays = document.querySelectorAll(".popup");
 //export const caption = document.querySelector(".popup__input[name=caption]");
