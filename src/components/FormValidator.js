@@ -78,12 +78,6 @@ export default class FormValidator {
     this._inputList.forEach((inputElement) => {
       this._hideInputError(inputElement);
     });
-<<<<<<< HEAD:scripts/FormValidator.js
-
-    this._buttonElement.setAttribute("disabled", true);
-    this._buttonElement.classList.add(this._inactiveButtonClass);
-=======
     this._toggleButtonState();
->>>>>>> develop:src/components/FormValidator.js
   }
 }
