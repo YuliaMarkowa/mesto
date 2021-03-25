@@ -22,6 +22,12 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 
+const addCardValidator = new FormValidator(settingObject, formElementNewCard);
+addCardValidator.enableValidation();
+
+const profileValidator = new FormValidator(settingObject, formElementEdit);
+profileValidator.enableValidation();
+
 //попап-фотография
 const popupWithPhoto = new PopupWithImage(popupPhoto);
 popupWithPhoto.setEventListeners();
@@ -68,12 +74,6 @@ const cardList = new Section(
 );
 
 cardList.renderItems();
-
-const addCardValidator = new FormValidator(settingObject, formElementNewCard);
-addCardValidator.enableValidation();
-
-const profileValidator = new FormValidator(settingObject, formElementEdit);
-profileValidator.enableValidation();
 
 editProfileButton.addEventListener("click", () => {
   nameInput.value = userInfo.getUserInfo().name;
