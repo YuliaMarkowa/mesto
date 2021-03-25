@@ -7,5 +7,6 @@ js
 grid
 flex
 файловая структура БЭМ
+сборка Webpack
 
 Ссылка на сайт: https://yuliamarkowa.github.io/mesto/index.html
