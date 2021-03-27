@@ -70,8 +70,9 @@ const cardList = new Section(
 cardList.renderItems();
 
 editProfileButton.addEventListener("click", () => {
-  nameInput.value = userInfo.getUserInfo().name;
-  aboutInput.value = userInfo.getUserInfo().caption;
+  const userData = userInfo.getUserInfo();
+  nameInput.value = userData.name;
+  aboutInput.value = userData.caption;
   profileValidator.resetValidation();
   profilePopup.open();
 });
