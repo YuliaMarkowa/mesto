@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+import "./index.css";
+>>>>>>> main
 import {
   initialCards,
   settingObject,
@@ -69,8 +73,14 @@ const cardList = new Section(
 cardList.renderItems();
 
 editProfileButton.addEventListener("click", () => {
+<<<<<<< HEAD
   nameInput.value = userInfo.getUserInfo().name;
   aboutInput.value = userInfo.getUserInfo().caption;
+=======
+  const userData = userInfo.getUserInfo();
+  nameInput.value = userData.name;
+  aboutInput.value = userData.caption;
+>>>>>>> main
   profileValidator.resetValidation();
   profilePopup.open();
 });
