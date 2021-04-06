@@ -32,29 +32,18 @@ export default class Card {
   }
 
   _setEventListeners() {
-<<<<<<< HEAD
-    this._likeButton.addEventListener("click", (evt) => {
-      evt.target.classList.toggle("card__like-button_active");
-      });
-
-    this._deleteButton.addEventListener("click", (evt) => {
-      evt.target.closest(".card").remove();
-=======
     this._likeButton.addEventListener("click", () => {
       this._likeCard();
       });
 
     this._deleteButton.addEventListener("click", () => {
       this._deleteCard();
->>>>>>> main
       });
 
     this._cardImage.addEventListener("click", () => {
       this._handleCardClick(this._link, this._figcaption);
     });
   }
-<<<<<<< HEAD
-=======
 
   _likeCard() {
     this._likeButton.classList.toggle("card__like-button_active");
@@ -63,5 +52,4 @@ export default class Card {
   _deleteCard() {
     this._element.remove();
   }
->>>>>>> main
 }
