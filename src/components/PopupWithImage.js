@@ -9,10 +9,10 @@ export default class PopupWithImage extends Popup {
     );
   }
 
-  open(link, figcaption) {
+  open(link, name) {
     this._popupPhotoImage.src = link;
-    this._popupPhotoFigcaption.textContent = figcaption.textContent;
-    this._popupPhotoImage.alt = `Изображение места: ${figcaption.textContent}`;
+    this._popupPhotoFigcaption.textContent = name;
+    this._popupPhotoImage.alt = `Изображение места: ${name.textContent}`;
     super.open();
   }
 }
