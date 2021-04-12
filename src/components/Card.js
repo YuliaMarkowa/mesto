@@ -56,9 +56,9 @@ export default class Card {
       this._deleteButton.classList.remove(".card__delete-button");
       this._deleteButton.style.display = "none";
     }
-
+    //при генерации показываем столько лайков, сколько есть
     this._counter.textContent = this._likes.length;
-
+    
     if (this.isLikeOrNot()) {
       this._addLikeCard();
     } else {
