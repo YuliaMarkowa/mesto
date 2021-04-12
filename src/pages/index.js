@@ -52,14 +52,12 @@ const userInfo = new UserInfo({
 
 //получение данных с сервера и загрузка данных карточек
 Promise.all([api.loadUserInfo(), api.getInitialCards()])
-  .then(([userData, initialCards]) => {
-    if (typeof [userData, initialCards][0] != "undefined") {
-      userInfo.setUserInfo([userData, initialCards][0]);
-      userInfo.setAvatar([userData, initialCards][0]);
-      userInfo.setUserId([userData, initialCards][0]);
-    }
-    cardList.renderItems([userData, initialCards][1], userInfo._id);
-  })
+.then(([userData, initialCards]) => {
+  userInfo.setUserInfo(userData);
+  userInfo.setAvatar(userData);
+  userInfo.setUserId(userData);
+  cardList.renderItems(initialCards, userData._id);
+})
   .catch((err) => {
     console.log(err);
   });
