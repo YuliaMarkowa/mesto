@@ -2,12 +2,11 @@ export default class Card {
   constructor(
     { name, link, _id, owner, likes },
     actualId,
-    cardTplSelector,
+    { cardTplSelector,
     cardSelector,
     handleCardClick,
     deleteCard,
-    likeCard
-  ) {
+    likeCard }) {
     this._name = name;
     this._link = link;
     this._id = _id;
@@ -99,9 +98,5 @@ export default class Card {
   setLikes(likes) {
     this._counter.textContent = likes.length;
     this._likes = likes;
-  }
-
-  counterLikes() {
-    return this._counter;
   }
 }

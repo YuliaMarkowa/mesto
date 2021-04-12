@@ -14,5 +14,7 @@ export const editProfileButton = document.querySelector(".profile__edit-button")
 export const addButton = document.querySelector(".profile__add-button");
 export const editAvatarButton = document.querySelector(".profile__avatar-button");
 
+//export const confirmSubmitPopup = document.querySelector(".popup__submit_confirm");
+
 export const nameInput = document.querySelector(".popup__input[name=name]");
 export const aboutInput = document.querySelector(".popup__input[name=about]");

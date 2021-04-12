@@ -31,10 +31,10 @@ export default class PopupWithForm extends Popup {
     this._form.reset();
   }
 
-  renderLoading(isLoading) {
+  renderLoading(isLoading, loadMessage = "Сохранение...") {
     if (isLoading) {
       this._submitInitialCaption = this._submitButton.textContent;
-      this._submitButton.textContent = "Сохранение...";
+      this._submitButton.textContent = loadMessage;
     } else {
       this._submitButton.textContent = this._submitInitialCaption;
     }
