@@ -69,7 +69,6 @@ export default class Api {
     }).then(this._checkResponse);
   }
 
-  
   _checkResponse(res) {
     if (res.ok) {
       return res.json();
