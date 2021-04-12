@@ -76,7 +76,7 @@
             <button aria-label="закрыть" class="popup__close-button" type="button"></button>
             <h2 class="popup__heading">Обновить аватар</h2>
             <form name="form" class="popup__form popup__form-avatar" novalidate>
-                <input type="text" placeholder="Ссылка на фотографию" name="link"
+                <input type="url" placeholder="Ссылка на фотографию" name="link"
                     class="popup__input popup__input_type_link-avatar" id="avatar-input" required>
                 <span class="popup__input-error avatar-input-error"></span>
                 <button type="submit" name="submit" class="popup__submit popup__submit_create-avatar popup__submit-ux">Сoхранить</button>
@@ -88,7 +88,7 @@
         <div class="popup__container">
             <form name="form" class="popup__form popup__form-delete" novalidate>
                 <button aria-label="закрыть" class="popup__close-button" type="button"></button>
-                <h2 class="popup__heading">Вы уверены?</h2>
+                <h2 class="popup__heading popup__heading_confirm">Вы уверены?</h2>
                 <button type="submit" name="submit" class="popup__submit popup__submit_confirm">Да</button>
             </form>
         </div>
