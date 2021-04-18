@@ -8,5 +8,5 @@ grid
 flex
 файловая структура БЭМ
 
-Ссылка на сайт: https://yuliamarkowa.github.io/mesto/
+Ссылка на сайт: https://yuliamarkowa.github.io/mesto/index.html
 
